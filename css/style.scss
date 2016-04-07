@@ -1,0 +1,53 @@
+html,
+body {
+    /*Good idea usually to set our body and page size, in case we need to worry about vertical position later*/
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    transform-style: preserve-3d;
+}
+
+#picCont {
+    /*display:flex;
+	flex-wrap:wrap*/
+}
+
+.prod {
+    position: relative;
+    transition-duration: .5s;
+    margin-bottom: 10px;
+    z-index: 10;
+    &:hover{
+    	transform: rotateZ(10deg);
+    	box-shadow: 3px 3px 8px #000;
+    }
+}
+
+.panel-heading {
+    background: url('http://lorempixel.com/400/400/fashion/');
+    background-size: cover;
+    & h2 {
+        text-align: center;
+        position: relative;
+        display: block;
+        padding: 5px;
+        background: rgba(255, 255, 255, .8);
+        box-shadow: 0 0 5px 3px #fff;
+    }
+}
+
+/*Random colors! Because why not*/
+
+@for $i from 1 through 6 {
+	$thisVal:random(20);
+   .prod:nth-of-type(#{$i}) {
+       background: hsl(0%,0%,$thisVal);
+   }
+}
+
+@for $j from 1 through 6 {
+	$thisVal:random(360);
+   .prod:nth-of-type(#{$j}):hover {
+       background: hsl($thisVal,100%,30);
+   }
+}
